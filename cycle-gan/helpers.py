@@ -53,7 +53,7 @@ def merge_images(sources, targets, batch_size=16):
 def to_data(x):
     """Converts variable to numpy."""
     if torch.cuda.is_available():
-        x = x.cpu()
+        x = x.gpu()
     x = x.data.numpy()
     x = ((x +1)*255 / (2)).astype(np.uint8) # rescale to 0-255
     return x
